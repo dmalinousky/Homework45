@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.stream.DoubleStream;
 
 public class HotDogStall {
     private HashMap<Ingredient, Integer> ingredients;
@@ -388,6 +387,13 @@ public class HotDogStall {
         return hotdog;
     }
 
+    public static void getStats(HotDogStall hotDogStall) {
+        System.out.println(hotDogStall.toString()); // Shows stall's stats
+        System.out.println("Total sum: " + hotDogStall.getTotalSum()); // Shows stall's total sum
+        System.out.println("Total profit (for current session only): "
+                + fileReaderMethod(hotDogStall.getTotalSum())); // Shows profit for current session
+    }
+
 
     // Menu method
     public static void menu(HotDogStall hotDogStall) {
@@ -407,9 +413,7 @@ public class HotDogStall {
                     menu(hotDogStall); // Menu calling
                     break;
                 case 2 :
-                    System.out.println(hotDogStall.toString()); // Shows stall's stats
-                    System.out.println("Total sum: " + hotDogStall.getTotalSum()); // Shows stall's total sum
-                    System.out.println("Total profit (for current session only): " + fileReaderMethod(hotDogStall.getTotalSum())); // Shows profit for current session
+                    getStats(hotDogStall);
                     menu(hotDogStall); // Menu calling
                     break;
                 case 3 :
